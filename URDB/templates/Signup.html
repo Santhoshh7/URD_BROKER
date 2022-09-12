@@ -1,0 +1,118 @@
+<html>
+<style>
+    h1 {
+        text-align: center;
+    }
+
+    h3 {
+        text-align: center;
+    }
+    body {
+        background-image: url("https://media.architecturaldigest.com/photos/59f1e889c3fb621c275f6c02/16:9/w_2580,c_limit/Wyoming%20-%20Courtesy%20of%20Trulia.jpg");
+        background-size: auto;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+
+    p {
+        text-align: center;
+    }
+
+    div {
+    text-align: center;
+  }
+
+input[type=text], input[type=password], textarea {  
+
+  width: 100%;  
+
+  padding: 15px;  
+
+  margin: 5px 0 22px 0;  
+
+  display: inline-block;  
+
+  border: none;  
+
+  background: #f1f1f1;  
+
+}  
+
+input[type=text]:focus, input[type=password]:focus {  
+
+  outline: none;  
+
+}  
+
+ div {  
+
+            padding: 10px 0;  
+
+         }  
+
+hr {  
+
+  border: 1px solid #f1f1f1;  
+
+  margin-bottom: 25px;  
+
+}  
+
+.registerbtn {  
+
+  background-color: #534b3c;  
+
+  color: white;  
+
+  padding: 16px 20px;  
+
+  margin: 8px 0;  
+
+  border: none;  
+
+  cursor: pointer;  
+
+  width: 49%;  
+
+  opacity: 0.9;  
+
+}  
+
+.registerbtn:hover {  
+
+  opacity: 1;  
+
+}  
+</style>
+
+<head>
+    <h1> URD-Broker </h1>
+    <h3> Signup </h3>
+</head>
+
+
+<body>
+    <form actions="/Signup" method="post">
+        <div class="container">
+            <label for="Username"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="username" required><br>
+            <br>
+            <label for="password"><b>Password</label></b></label>
+            <input type="password" placeholder="Enter Password" name="password" required><br>
+            <br>
+            <label for="email"><b>email</b></label>
+            <input type="email" placeholder="Enter email id" name="email" required><br>
+            <br>
+            <label for="number"><b>Contact number</b></label>
+            <input type="text" placeholder="Enter Contact num" name="contact" required><br>
+            <br>
+            <label for="Option"><b>Choose Option</b></label>
+            <input type="text" placeholder="Enter Option" name="option" required><br>
+            <br>
+            <button type="submit">Sign up</button>
+            <button type="button" onclick="location.href='http://127.0.0.1:2023'" >BACK</button>
+        </div>
+    </form>
+</body>
+
+</html>
