@@ -61,8 +61,9 @@ background-color: #111;
 
 <ul>
 <li><a class="active" href="/home">Home</a></li>
-<li><a href="/Thome">Tenant</a></li>
-<li><a href="/Logout">logout</a></li>
+<li><a href="/Tenant">Tenant</a></li>
+<li><a href="/TStatus">Refresh</a></li>
+<li><a href="/Logout">Logout</a></li>
 
 </ul>
 
@@ -137,23 +138,14 @@ background-color: #111;
       </td>
 
       <td>
-
+        {{ re ['Confirmation'] }}
         {% with messages = get_flashed_messages() %}
 
 
 
         {% if messages %}
 
-
-
-
-
-
-
         {{ re ['Confirmation'] }}
-
-
-
 
 
 

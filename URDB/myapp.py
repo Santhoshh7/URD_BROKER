@@ -46,6 +46,7 @@ def Rlogin():
         check=list(db.find({'email':request.form['email'],'password':request.form['password']},{'name':0,'password':0,"_id":0,"email":0,"contact":0}))
         if((test) and (check[0]['option']=='RENTER')):
             session["email"]=email
+            flash(f'Logged in as :'+email)
             return redirect("/Renter")
         else:
             flash("Invalid Login")
@@ -82,6 +83,7 @@ def Tlogin():
             check=list(db.find({'email':request.form['email'],'password':request.form['password']},{'name':0,'password':0,"_id":0,"email":0,"contact":0}))
             if((test) and (check[0]['option']=='TENANT')):
                 session["email"]=email
+                flash(f'Logged in as :'+email)
                 return redirect("/Tenant")
             else:
                 flash("Invalid Login")

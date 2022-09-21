@@ -63,7 +63,7 @@ background-color: #111;
 <li><a class="active" href="/home">Home</a></li>
 <li><a href="/Thome">Tenant</a></li>
 
-<li><a href="/Logout">logout</a></li>
+<li><a href="/Logout">Logout</a></li>
 
 </ul>
 
@@ -201,13 +201,14 @@ background-color: #111;
         </td>
         <td>
           {{ broker ['Confirmation'] }}
-          {% endfor %}
+          
         </td>
       
-      {% endblock %}
-      <td> {% for crr in lst1 %}
-        {{ crr ['comment'] }}
-        {% endfor %}</td>
+      
+      <td> 
+        {{ broker ['comment'] }}
+        {% endfor %}
+        {% endblock %}</td>
       </tr>
     </table>
 
@@ -222,21 +223,6 @@ background-color: #111;
   </h2>
 
 </body>
-<script>
-  // function myfunction() {
-  //   ele = document.getElementById('data')
-  //   ele.classList.remove('center')
-  //   ele.classList.add('.table-checked')
-  // }
 
-  // document.getElementById("check-btn").addEventListener("click", function (event) {
-  //   event.preventDefault()
-  //   ele = document.getElementById('data')
-  //   ele.classList.remove('center')
-  //   ele.classList.add('.table-checked')
-  //   event.preventDefault()
-  // });
-
-</script>
 
 </html>
