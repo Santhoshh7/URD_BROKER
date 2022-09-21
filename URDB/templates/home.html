@@ -3,34 +3,107 @@
 <style>
   h1 {
     text-align: center;
+    color: bisque;
+    font-size: 150px;
   }
-  body{
+  h3{
+    text-align: center;
+    color: green
+
+  }
+.head{
+
+  background-color: grey;
+  padding: 10px;}
+.container{
+  padding: 60px;
+}
+
+  /* body{
     background-image:url("https://media.architecturaldigest.com/photos/59f1e889c3fb621c275f6c02/16:9/w_2580,c_limit/Wyoming%20-%20Courtesy%20of%20Trulia.jpg");
     background-size: auto;
     background-repeat: no-repeat;
     background-attachment: fixed;
-  }
+  } */
+  .Rhome {
+
+  text-align: center;
+  display: inline-block;
+  border: none;
+}
+
+.Thome {
+  text-align: center;
+  display: inline-block;
+  border: none;
+}
+.f1 {
+  display:inline-block;
+  padding-top: 50px;
+}
+.f2 {
+  display:inline-block;
+}
 
   p {
     text-align: center;
   }
 
+.center {
+  text-align:center;
+}
+.c1{
+  font-size: 25px;
+}
   div {
     text-align: center;
+    margin-top: -90px;
   }
-</style>
+  button:hover{
+    cursor: pointer;
+    background-color:green;
+}
+button{
+  width: 150px;
+  height:40px;
+  border-radius: 15px;
+  background-color: rgb(206, 54, 54);
+  border: none;
+  font-size: 20px;
+}
 
+</style>
+<div class="head">
 <head>
+  
   <h1> URD-Broker </h1>
 </head>
-<div class="container">
+
     <body>
-        <form action="/Rhome" method="post">
-            <button type="submit">RENTER</button>
+         
+      <p>
+       <b class="c1"> Welcome to URD-Broker, Rent a House without any Middle Man </b>
+      </p>
+    </div>
+    <div class="container">
+        <form class="f1" action="/Rhome" method="post" >
+            <button type="submit" class="Rhome">Renter</button>
+
         </form>
-            <form action="/Thome" method="post">
-            <button type="submit">TENET </button>
+            <form class="f2" action="/Thome" method="post">
+            <button type="submit" class="Thome">Tenant </button>
             </form>
+            <br>
+            <button onclick="location.href='http://127.0.0.1:2023/Signup'" type="button">Sign up</button>
             </div>
+            <h3>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+               {% for message in messages %}
+                   {{ message }}
+               {% endfor %}
+           {% endif %}
+       {% endwith %} 
+      </h3>
     </body>
 </html>

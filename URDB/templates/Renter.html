@@ -1,6 +1,184 @@
 <html>
-    <body>
-        <p>
-           Sorry For the inconvienence, the page is under construction  </p>
-    </body>
+<style>
+
+
+  .container {
+    background-color: rgb(127, 154, 156);
+    width: 400px;
+    height: 400px;
+    margin-top: 110px;
+    margin-left: 420px;
+    padding-top: 20px;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  h3 {
+    text-align: center;
+    text-decoration-color: red;
+  }
+
+  h5 {
+    text-align: center;
+  }
+
+  .btn {
+    text-align: center;
+  }
+
+  div {
+    text-align: center;
+  }
+
+  .h4 {
+    text-align: center;
+  }
+
+  li {
+    list-style: none;
+  }
+</style>
+
+<body>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!DOCTYPE html>
+      <html>
+
+      <head>
+        <style>
+          ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: rgb(207, 160, 90);
+          }
+
+          li {
+            float: left;
+          }
+
+          li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 100px;
+            text-decoration: none;
+          }
+
+          li a:hover {
+            background-color: #111;
+          }
+
+          .btn {
+            align-items: center;
+          }
+
+          .rstatus {
+            align-items: center;
+            width: 100%;
+          }
+        </style>
+      </head>
+
+      <body>
+
+        <ul>
+          <li><a class="active" href="/home">Home</a></li>
+          <li><a href="/Renter">Renter</a></li>
+
+          <li><a href="/Logout">logout</a></li>
+
+        </ul>
+
+      </body>
+
+
+      </html>
+
+      <h3>
+        {% with messages = get_flashed_messages() %}
+
+        {% if messages %}
+
+        {% for message in messages %}
+
+        {{ message }}
+
+        {% endfor %}
+
+        {% endif %}
+
+        {% endwith %}
+      </h3>
+      <div class="container">
+
+        <form action="/Renter" method="post">
+          <label for="city"><b>Choose a City </b></label>
+          <select name="city" required id="city">
+            <option value="none" selected disabled hidden>Select an City</option>
+            <option value="Chennai">Chennai</option>
+            <option value="Hyderabad">Hyderabad</option>
+          </select><br>
+          <br>
+          <label for="area"><b>Area</b></label>
+          <input type="text" placeholder="Enter Area name" name="area" required id="area"><br>
+          <br>
+          <label for="landmark"><b>Landmark</b></label>
+          <input type="text" placeholder="Enter Landmark" name="lmark" required id="lmark"><br>
+          <br>
+          <label for="BHK"><b>BHK </b></label>
+          <select name="BHK" required id="BHK">
+            <option value="none" selected disabled hidden>Select BHK</option>
+            <option value="1BHK">1BHK</option>
+            <option value="2BHK">2BHK</option>
+            <option value="3BHK">3BHK</option>
+          </select><br>
+          <br>
+          <label for="HTYPE"><b>House Type </b></label>
+          <select name="Htype" required id="Htype">
+            <option value="none" selected disabled hidden>Select House Type</option>
+            <option value="Apartment">Apartment</option>
+            <option value="Full House">Full-House</option>
+            <option value="Flat">Flatmate</option>
+            <option value="PG">PG</option>
+          </select><br>
+          <br>
+          <label for="Furnishing"><b>Furnishing type </b></label>
+          <select name="Ftype" required id="Ftype">
+            <option value="none" selected disabled hidden>Select Furnishing type</option>
+            <option value="Fully Furnished">Fully Furnished</option>
+            <option value="Semi Furnished">Semi Furnished</option>
+            <option value="No Furnishing">No Furnishing</option>
+          </select><br>
+          <br>
+          <label for="Required"><b>Required for</b></label>
+          <select name="req" required id="req">
+            <option value="none" selected disabled hidden>Select Requirement</option>
+            <option value="Family">Family</option>
+            <option value="Bachelor">Bachelor</option>
+            <option value="No Furnishing">Single</option>
+          </select><br>
+          <br>
+          <label for="rent"><b>Rent</b></label>
+          <input type="text" placeholder="Enter Rent" name="rent" required id="rent"><br>
+          <br>
+
+
+
+          <h2><button type="submit">Add</button></h2>
+          <div class="btn">
+            <li class="rstatus"><a href="/RStatus"><button type="button">See Status</button></a></li>
+          </div>
+
+          </ul>
+        </form>
+      </div>
+  </nav>
+
+</body>
+
 </html>

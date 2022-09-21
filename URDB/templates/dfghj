@@ -1,0 +1,155 @@
+<html>
+    <style>
+          body{
+    /* background-image:url("https://media.architecturaldigest.com/photos/59f1e889c3fb621c275f6c02/16:9/w_2580,c_limit/Wyoming%20-%20Courtesy%20of%20Trulia.jpg");
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-attachment: fixed; */
+  }
+  .container{
+    background-color: rgb(127, 154, 156);
+    width: 400px;
+    height: 400px;
+    margin-top: 110px;
+    margin-left: 420px;
+    padding-top: 20px;
+  }
+  h1 {
+  text-align: center;
+        }
+        h2 {
+  text-align: center;
+        }
+
+div{
+    text-align: center;
+}
+li{
+   list-style: none;
+}
+
+  </style>
+    <body>
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <!DOCTYPE html>
+<html>
+<head>
+<style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: rgb(207, 160, 90);
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 100px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+</style>
+</head>
+<body>
+
+<ul>
+  <li><a class="active" href="#home">Home</a></li>
+  <li><a href="#news">News</a></li>
+  <li><a href="#contact">Contact</a></li>
+  <li><a href="#about">About</a></li>
+  <li><a href="#about">logout</a></li>
+
+</ul>
+
+</body>
+</html>
+{% block body %}
+    {% for re in udet %}
+
+    
+        <div class="container">
+            <form action="/update/{{re['_id']}}" method="post">
+            <label for="city"><b>Choose a City </b></label>
+            <select name="city" required id="city">
+                <option value="none" selected disabled hidden>{{re['city']}}</option>
+                <option value="Chennai">Chennai</option>
+                <option value="Hyderabad">Hyderabad</option>
+              </select><br>
+              <br>
+              <label for="area"><b>Area</b></label> 
+              <input type="text" placeholder="{{re['area']}}" name="area" required id="area"><br>
+              <br>
+              <label for="landmark"><b>Landmark</b></label> 
+              <input type="text" placeholder="{{re['landmark']}}" name="lmark" required id="lmark"><br>
+              <br>
+              <label for="BHK"><b>"BHK" </b></label>
+              <select name="BHK"  required id="BHK" >
+                <option value="none" selected disabled hidden>{{re['BHK']}}</option>
+                <option value="1BHK">1BHK</option>
+                <option value="2BHK">2BHK</option>
+                <option value="3BHK">3BHK</option>
+              </select><br>
+              <br>
+              <label for="HTYPE"><b>HTYPE</b></label>
+              <select name="Htype" required id="Htype" >
+                <option value="none" selected disabled hidden>{{re['Htype']}}</option>
+                <option value="Apartment">Apartment</option>
+                <option value="Full House">Full-House</option>
+                <option value="Flat">Flatmate</option>
+                <option value="PG">PG</option>
+              </select><br>
+              <br>
+              <label for="Furnishing"><b>FTYPE  </b></label>
+              <select name="Ftype"  required id="Ftype" >
+                <option value="none" selected disabled hidden>{{re['Ftype']}}</option>
+                <option value="Fully Furnished">Fully Furnished</option>
+                <option value="Semi Furnished">Semi Furnished</option>
+                <option value="No Furnishing">No Furnishing</option>
+              </select><br>
+              <br>
+              <label for="Required"><b>Requirment</b></label>
+              <select name="req"  required id="req" >
+                <option value="none" selected disabled hidden>{{re['req']}}</option>
+                <option value="Family">Family</option>
+                <option value="Bachelor">Bachelor</option>
+                <option value="No Furnishing">Single</option>
+              </select><br>
+              <br>
+              <label for="rent"><b>Rent</b></label> 
+              <input type="text" placeholder="{{re['rent']}}" name="rent" required id="rent"><br>
+              <br> 
+              <button type="submit">Update</button>
+              <button type="button" onclick="location.href='http://127.0.0.1:2023/RStatus'" >BACK</button>
+        {% endfor %}
+        {% with messages = get_flashed_messages() %}
+
+        {% if messages %}
+
+           {% for message in messages %}
+
+               {{ message }}
+
+           {% endfor %}
+
+       {% endif %}
+
+   {% endwith %}
+  {% endblock %}
+      </ul>
+    </form>
+    </div>
+  </nav>
+
+    </body>
+</html>

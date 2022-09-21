@@ -5,6 +5,11 @@
   }
   h2 {
     text-align: center;
+
+  }
+  h3 {
+    text-align: center;
+    color:red;
   }
   body{
     background-image:url("https://media.architecturaldigest.com/photos/59f1e889c3fb621c275f6c02/16:9/w_2580,c_limit/Wyoming%20-%20Courtesy%20of%20Trulia.jpg");
@@ -20,6 +25,9 @@
   div {
     text-align: center;
   }
+  #email{
+  margin-left:0.5em ;
+}
 </style>
 
 <head>
@@ -31,22 +39,31 @@
 </head>
 <body>
   <p>
-    Welcome to URD-Broker, Rent a House without any Middle Man
-  </p>
+    <b> Welcome to URD-Broker, Rent a House without any Middle Man </b>
+   </p>
   <form action="/Rlogin" method="post">
 
 
     <div class="container">
-      <label for="Username"><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="username" required><br>
+      <label for="email"><b>Email id</b></label> 
+      <input type="email" placeholder="Enter email id" name="email" required id="email"><br>
       <br>
 
       <label for="password"><b>Password</b></label>
       <input type="password" placeholder="Enter Password" name="password" required><br>
       <br>
       <button type="submit">Login</button>
-      <button onclick="location.href='http://127.0.0.1:2023/Signup'" type="button">Sign up</button>
+      
       <button type="submit" onclick="location.href='http://127.0.0.1:2023'">BACK</button>
+      <h3>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+           {% for message in messages %}
+               {{ message }}
+           {% endfor %}
+       {% endif %}
+    {% endwith %}
+        </h3>
     </div>
   </form>
 </body>

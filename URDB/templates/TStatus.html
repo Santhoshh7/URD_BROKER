@@ -1,0 +1,198 @@
+
+<html>
+  <style>
+
+.containerr{
+  background-color: rgb(127, 154, 156);
+  width: 400px;
+  height: 400px;
+  margin-top: 110px;
+  margin-left: 420px;
+  padding-top: 20px;
+}
+h1 {
+text-align: center;
+      }
+      h2 {
+text-align: center;
+      }
+
+div{
+  text-align: center;
+}
+li{
+ list-style: none;
+}
+
+</style>
+  <body>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <!DOCTYPE html>
+<html>
+<head>
+<style>
+ul {
+list-style-type: none;
+margin: 0;
+padding: 0;
+overflow: hidden;
+background-color: rgb(207, 160, 90);
+}
+
+li {
+float: left;
+}
+
+li a {
+display: block;
+color: white;
+text-align: center;
+padding: 14px 100px;
+text-decoration: none;
+}
+
+li a:hover {
+background-color: #111;
+}
+</style>
+</head>
+<body>
+
+<ul>
+<li><a class="active" href="/home">Home</a></li>
+<li><a href="/Thome">Tenant</a></li>
+<li><a href="/Logout">logout</a></li>
+
+</ul>
+
+</body>
+
+<html>
+<style>
+  h1 {
+    text-align: center;
+  }
+
+  th {
+    background-color: rgb(137, 192, 192);
+  }
+
+  td {
+    background-color: rgb(240, 219, 231);
+    align-items: center;
+    text-align: center;
+
+  }
+</style>
+
+<body>
+  {% block body %}
+
+  <table border="1" class="center">
+    </h3>
+
+    <tr >
+      <th> City </th>
+      <th> Area </th>
+      <th> Landmark </th>
+      <th> BHK </th>
+      <th>Required </th>
+      <th> House Type </th>
+      <th> Furnishing </th>
+      <th> Rent </th>
+      <th>Meet Status</th>
+      <th> Final Booking </th>
+      <th> Final Booking Status</th>
+      <th> Delete </th>
+      <th> Comment </th>
+
+    </tr>
+    <br>
+    {% for re in tdet %}
+    <tr>
+
+      <td>{{re['city']}}</td>
+      <td>{{re['area']}}</td>
+      <td>{{re['landmark']}}</td>
+      <td>{{re['BHK']}}</td>
+      <td> {{re['req']}}</td>
+      <td>{{re['Htype']}}</td>
+      <td>{{re['Ftype']}}</td>
+      <td>{{re['rent']}}</td>
+      <td>{{re['Meet']}}</td>
+      <td>
+        {{re['status']}}
+        <form action="/Tstatus/{{re['_id']}}" method="POST">
+
+          <select name="tstatus" required id="tstatus">
+            <option value="none" selected disabled hidden>Select</option>
+            <option value="Final_Request">Final_Request</option>
+            <option value="Deny">Deny</option>
+            <option value="None">None</option>
+          </select>
+
+          <button type="submit">Confirm</button>
+        </form>
+      </td>
+
+      <td>
+
+        {% with messages = get_flashed_messages() %}
+
+
+
+        {% if messages %}
+
+
+
+
+
+
+
+        {{ re ['Confirmation'] }}
+
+
+
+
+
+
+        {% endif %}
+
+
+
+        {% endwith %}</td>
+
+      {% set rid = re['_id'] %}
+      <td><button class="del" type="button"><a href="{{ url_for('Tdele',id=rid)}}">Delete</a></button></td>
+      <td> <form action="/comment/{{re['_id']}}" method="post">
+        <br>
+      <input type="text" placeholder="Enter Comment" name="comment"><br>
+      <br>
+      <button type="submit">submit</button>
+
+      {% with messages = get_flashed_messages() %}
+      {% if messages %}
+      {% for message in messages %}
+      {{ message }}
+      {% endfor %}
+      {% endif %}
+      {% endwith %}
+      </form></td>
+    </tr>
+
+
+    {% endfor %}
+
+    {% endblock %}
+    <br>
+    </div>
+
+  </table>
+  
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<html>
+    <style>
+        h1 {
+  text-align: center;
+}
+  </style>
+    <body>
+      {% for re in lst %}
+      <form action="/Tbook/{{re['_id']}}" method="POST"> 
+        {% endfor %}
+        <table border="1" class="center"></h3>
+            <tr>
+              <th> City </th>
+              <th> Area </th>
+              <th> Landmark </th>
+              <th> BHK </th>
+              <th>Required </th>
+              <th> House Type </th>
+              <th> Furnishing </th>
+              <th> Rent </th>
+              <th>Request</th>
+              <th> Action</th>
+              <th> Updated_Response</th>
+              <th> Delete </th>
+              <th> Update </th>
+              
+            </tr>
+            <br>
+          {% for re in det %}
+            <tr>
+        
+                <td>{{re['city']}}</td>
+                <td>{{re['area']}}</td>
+                <td>{{re['landmark']}}</td>
+                <td>{{re['BHK']}}</td>
+                <td> {{re['req']}}</td>
+                <td>{{re['Htype']}}</td>
+                <td>{{re['Ftype']}}</td>
+                <td>{{re['rent']}}</td>
+                <td>None</td>
+                <td>    
+                  
+                  <form action="/status/{{re['_id']}}" method="POST"> 
+                    <select name="status"  required id="status" >
+                      <option value="none" selected disabled hidden>Select</option>
+                      <option value="Accept">Accept</option>
+                      <option value="Deny">Deny</option>
+
+                    </select>
+
+                    <button type="submit">Confirm</button>
+                 </td>
+                 <td>
+
+              
+
+                 </td>
+           {% endfor %}
+           
+ <td></td>
+                </form>
+            </tr>
+          <br>
+        </div>
+        </form>
+    </body>
+</html>

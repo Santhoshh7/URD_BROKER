@@ -1,0 +1,242 @@
+
+<html>
+  <style>
+
+.containerr{
+  background-color: rgb(127, 154, 156);
+  width: 400px;
+  height: 400px;
+  margin-top: 110px;
+  margin-left: 420px;
+  padding-top: 20px;
+}
+h1 {
+text-align: center;
+      }
+      h2 {
+text-align: center;
+      }
+
+div{
+  text-align: center;
+}
+li{
+ list-style: none;
+}
+
+</style>
+  <body>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <!DOCTYPE html>
+<html>
+<head>
+<style>
+ul {
+list-style-type: none;
+margin: 0;
+padding: 0;
+overflow: hidden;
+background-color: rgb(207, 160, 90);
+}
+
+li {
+float: left;
+}
+
+li a {
+display: block;
+color: white;
+text-align: center;
+padding: 14px 100px;
+text-decoration: none;
+}
+
+li a:hover {
+background-color: #111;
+}
+</style>
+</head>
+<body>
+
+<ul>
+<li><a class="active" href="/home">Home</a></li>
+<li><a href="/Thome">Tenant</a></li>
+
+<li><a href="/Logout">logout</a></li>
+
+</ul>
+
+</body>
+
+<html>
+<style>
+  h1 {
+    text-align: center;
+  }
+
+  .center {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+  .fclass{
+    text-align: center;
+  }
+  .check{
+    margin-top: 2rem;
+    text-align: center;
+  }
+  .table-checked {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+
+  th {
+    background-color: rgb(137, 192, 192);
+  }
+
+  td {
+    background-color: rgb(240, 219, 231);
+    align-items: center;
+    text-align: center;
+
+  }
+
+  h3 {
+    text-align: center;
+  }
+
+  h4 {
+  
+    text-align: center;
+  }
+  h2 {
+    color: rgba(255, 0, 0, 0.742);
+    text-align: center;
+  }
+</style>
+
+<body>
+
+  <div class="container">
+    <br>
+    <form action="/Tenant" class="fclass" method="post">
+      <label for="city"><b>Choose a City </b></label>
+      <select name="city" required id="city">
+        <option value="none" selected disabled hidden>Select an City</option>
+        <option value="Chennai">Chennai</option>
+        <option value="Hyderabad">Hyderabad</option>
+      </select>
+
+      <label for="BHK"><b>BHK </b></label>
+      <select name="BHK" required id="BHK">
+        <option value="none" selected disabled hidden>Select BHK</option>
+        <option value="1BHK">1BHK</option>
+        <option value="2BHK">2BHK</option>
+        <option value="3BHK">3BHK</option>
+      </select>
+
+      <label for="HTYPE"><b>House Type </b></label>
+      <select name="Htype" required id="Htype">
+        <option value="none" selected disabled hidden>Select House Type</option>
+        <option value="Apartment">Apartment</option>
+        <option value="Full House">Full-House</option>
+        <option value="Flat">Flatmate</option>
+        <option value="PG">PG</option>
+      </select>
+      <label for="Furnishing"><b>Furnishing type </b></label>
+      <select name="Ftype" required id="Ftype">
+        <option value="none" selected disabled hidden>Select Furnishing type</option>
+        <option value="Fully Furnished">Fully Furnished</option>
+        <option value="Semi Furnished">Semi Furnished</option>
+        <option value="No Furnishing">No Furnishing</option>
+      </select>
+<br>
+<h4>
+      <button class="check" onclick="myfunction()" id="check-btn">Check</button>
+      <button type="button" onclick="location.href='http://127.0.0.1:2023/Tenant'" >Refresh</button>
+    </h4>
+
+    </form><br>
+    <h4>
+    <a href="/TStatus"><button type="button">See Status</button></a> 
+  </h4>
+    <br>
+    {% block body %}
+    <table border="1" class="center" id="data">
+
+      <tr>
+        <th> City </th>
+        <th> Area </th>
+        <th> Landmark </th>
+        <th> BHK </th>
+        <th> House Type </th>
+        <th> Furnishing </th>
+        <th> Rent </th>
+        <th> Book </th>
+        <th> Status </th>
+        <th> Comment </th>
+      </tr>
+      {% for broker in lst1 %}
+      <tr>
+        <td>{{broker['city']}}</td>
+        <td>{{broker['area']}}</td>
+        <td>{{broker['landmark']}}</td>
+        <td>{{broker['BHK']}}</td>
+        <td>{{broker['Htype']}}</td>
+        <td>{{broker['Ftype']}}</td>
+        <td>{{broker['rent']}}</td>
+        <td>
+          <form action="/Tbook/{{broker['_id']}}" method="POST">
+            <select name="book" required id="book">
+              <option value="none" selected disabled hidden>Select</option>
+              <option value="Requested">Requested</option>
+              <option value="NMeet">Nmeet</option>
+              <option value="None">None</option>
+            </select>
+            <button type="submit">Confirm</button>
+          </form>
+        </td>
+        <td>
+          {{ broker ['Confirmation'] }}
+          {% endfor %}
+        </td>
+      
+      {% endblock %}
+      <td> {% for crr in lst1 %}
+        {{ crr ['comment'] }}
+        {% endfor %}</td>
+      </tr>
+    </table>
+
+    <h2>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    {{ message }}
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+  </h2>
+
+</body>
+<script>
+  // function myfunction() {
+  //   ele = document.getElementById('data')
+  //   ele.classList.remove('center')
+  //   ele.classList.add('.table-checked')
+  // }
+
+  // document.getElementById("check-btn").addEventListener("click", function (event) {
+  //   event.preventDefault()
+  //   ele = document.getElementById('data')
+  //   ele.classList.remove('center')
+  //   ele.classList.add('.table-checked')
+  //   event.preventDefault()
+  // });
+
+</script>
+
+</html>
